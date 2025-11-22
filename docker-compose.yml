@@ -1,0 +1,48 @@
+services:
+  guacamole_db:
+    container_name: guacamole_db
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./guacamole_db:/var/lib/mysql
+    networks:
+      - guac_net
+
+  guacd:
+    container_name: guacd
+    image: guacamole/guacd:latest
+    restart: always
+    networks:
+      - guac_net
+
+  guacamole:
+    container_name: guacamole
+    image: guacamole/guacamole:latest
+    restart: always
+    depends_on:
+      - guacamole_db
+      - guacd
+    ports:
+      - "8080:8080"
+    environment:
+      GUACD_HOSTNAME: guacd
+      MYSQL_HOSTNAME: guacamole_db
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      RECORDING_SEARCH_PATH: ${RECORDING_SEARCH_PATH}
+    volumes:
+      - ./guacd_record:/var/lib/guacamole/recordings
+    networks:
+      - guac_net
+
+networks:
+  guac_net:
+    driver: bridge
