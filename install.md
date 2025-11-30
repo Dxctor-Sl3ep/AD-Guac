@@ -109,7 +109,7 @@ docker compose logs guacamole --tail 100
 Accédez ensuite à : `http://localhost:8043/guacamole/`
 
 Identifiants par défaut : `guacadmin` / `guacadmin` — changez-les immédiatement.
-[guacamole page d'acceuil](./images/acceuil-guac.png)
+    ![guacamole page d'acceuil](./images/acceuil-guac.png)
 
 ## 5. Gros fichiers & bonnes pratiques
 
