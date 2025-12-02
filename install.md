@@ -302,3 +302,5 @@ Chargement infini ou Page d'erreur	docker compose logs guacamole	L'erreur la plu
 Access denied (dans les logs)	docker exec -it guacamole_db mariadb -u root -p[MDP_ROOT]	Le mot de passe dans votre commande ou dans le .env est incorrect. Si vous soupçonnez une incohérence, effectuez un nettoyage complet : docker compose down -v et recommencez les étapes 3.2 à 3.4 avec un mot de passe très simple dans le .env.
 ParserError (< est réservé)	N/A	Vous utilisez la mauvaise syntaxe pour PowerShell. Utilisez **`Get-Content .\initdb.sql
 Nettoyage complet	N/A	Pour supprimer toutes les données de MariaDB et recommencer à zéro : docker compose down -v.
+
+[lien vers la creation de user](./user.md)

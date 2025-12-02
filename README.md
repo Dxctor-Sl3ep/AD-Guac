@@ -46,3 +46,4 @@ Déployer Guacamole via Docker Compose résout les problèmes de dépendances, d
 📖 3. Démarrage du Projet
 
 Toutes les étapes pour lancer cette stack sont détaillées dans le fichier install.md.
+[lien vers l'installation](./install.md)

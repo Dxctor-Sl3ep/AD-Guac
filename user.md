@@ -11,6 +11,11 @@ Ce guide explique les tâches d'administration de base après connexion à l'int
 Utilisateur : guacadmin
 Mot de passe : guacadmin
 ```
+
+![premiere-connexion](images/premiere-connexion.png)
+
+![connexion-en-admin](images/connexion-en-admin.png)
+
 - Cliquez sur votre nom d'utilisateur (en haut à droite) puis sélectionnez **Paramètres**.
 
 ## 2. Changer le mot de passe de l'utilisateur Admin
@@ -21,6 +26,8 @@ La première étape de sécurité est de changer le mot de passe de `guacadmin` 
 2. Cliquez sur l'utilisateur `guacadmin`.
 3. Dans l'édition de l'utilisateur, renseignez le nouveau mot de passe et confirmez-le.
 4. Cliquez sur **Enregistrer** (vous devrez peut-être vous reconnecter).
+
+![modifier-mdp](images/modifier-mdp.png)
 
 ## 3. Créer des utilisateurs standards
 
@@ -42,6 +49,14 @@ Un utilisateur doit avoir au moins une permission sur une connexion pour y accé
 2. Dans **Connexions**, cochez les connexions auxquelles l'utilisateur doit accéder.
 3. Assurez-vous que l'autorisation **Lecture** est cochée.
 4. Cliquez sur **Enregistrer**.
+
+![profile1](images/profile1.png)
+
+![profile2](images/profile2.png)
+
+
+![liste-user](images/liste-user.png)
+
 
 ## 4. Gérer les groupes d'utilisateurs
 
@@ -65,34 +80,8 @@ Les groupes permettent d'attribuer des permissions à plusieurs utilisateurs en 
 2. Ouvrez l'onglet **Groupes** et cochez le groupe approprié.
 3. Cliquez sur **Enregistrer**. L'utilisateur hérite alors des permissions du groupe.
 
----
-
-## Images
-
-Les images du dossier `images/` ont été ajoutées ci-dessous. Elles n'étaient pas référencées dans le document initial.
-
-> Aperçu rapide :
-
-![acceuil-guac](images/acceuil-guac.png)
-
-![connexion-en-admin](images/connexion-en-admin.png)
-
-![gestion-des-groupes](images/gestion-des-groupes.png)
-
 ![groupe-admin](images/groupe-admin.png)
 
 ![groupe-user](images/groupe-user.png)
 
-![liste-user](images/liste-user.png)
-
-![modifier-mdp](images/modifier-mdp.png)
-
-![premiere-connexion](images/premiere-connexion.png)
-
-![profile1](images/profile1.png)
-
-![profile2](images/profile2.png)
-
----
-
-Si vous souhaitez un affichage en grille, des vignettes redimensionnées, ou des légendes détaillées pour chaque image, dites-le et j'ajusterai la section `Images` en conséquence.
+![gestion-des-groupes](images/gestion-des-groupes.png)
