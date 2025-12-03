@@ -1,87 +1,88 @@
-# Guide de gestion des utilisateurs et des groupes dans Guacamole
+````markdown
+# User and Group Management Guide for Guacamole
 
-Ce guide explique les tâches d'administration de base après connexion à l'interface Guacamole.
+This guide explains basic administrative tasks after logging into the Guacamole web interface.
 
-## 1. Connexion en tant qu'administrateur
+## 1. Log in as administrator
 
-- Ouvrez votre navigateur et accédez à : `http://localhost:8043/guacamole/`
-- Connectez-vous avec les identifiants par défaut :
+- Open your browser and go to: `http://localhost:8043/guacamole/`
+- Sign in with default credentials:
 
 ```text
-Utilisateur : guacadmin
-Mot de passe : guacadmin
+Username: guacadmin
+Password: guacadmin
 ```
 
-![premiere-connexion](images/premiere-connexion.png)
+![first-login](images/premiere-connexion.png)
 
-![connexion-en-admin](images/connexion-en-admin.png)
+![admin-login](images/connexion-en-admin.png)
 
-- Cliquez sur votre nom d'utilisateur (en haut à droite) puis sélectionnez **Paramètres**.
+- Click your username (top-right) and select **Settings**.
 
-## 2. Changer le mot de passe de l'utilisateur Admin
+## 2. Change the Admin password
 
-La première étape de sécurité est de changer le mot de passe de `guacadmin` (ou d'un autre compte administrateur).
+The first security step is to change the `guacadmin` password (or the password of any admin account).
 
-1. Dans **Paramètres**, ouvrez l'onglet **Utilisateurs**.
-2. Cliquez sur l'utilisateur `guacadmin`.
-3. Dans l'édition de l'utilisateur, renseignez le nouveau mot de passe et confirmez-le.
-4. Cliquez sur **Enregistrer** (vous devrez peut-être vous reconnecter).
+1. In **Settings**, open the **Users** tab.
+2. Click the `guacadmin` user.
+3. In the user edit form, enter and confirm the new password.
+4. Click **Save** (you may need to log in again).
 
-![modifier-mdp](images/modifier-mdp.png)
+![change-password](images/modifier-mdp.png)
 
-## 3. Créer des utilisateurs standards
+## 3. Create regular users
 
-Ce chapitre explique comment ajouter de nouveaux utilisateurs.
+This section explains how to add new users.
 
-### Création de l'utilisateur
+### Creating a user
 
-1. Dans **Paramètres** → **Utilisateurs**, cliquez sur **Nouvel utilisateur**.
-2. Dans l'onglet **Propriétés** :
-   - **Nom d'utilisateur** : ex. `marc`
-   - **Mot de passe** : saisissez et confirmez le mot de passe initial.
-3. Cliquez sur **Enregistrer**.
+1. In **Settings** → **Users**, click **New User**.
+2. Under **Properties**:
+   - **Username**: e.g. `marc`
+   - **Password**: set and confirm an initial password.
+3. Click **Save**.
 
-### Attribution des permissions (connexions)
+### Assigning connection permissions
 
-Un utilisateur doit avoir au moins une permission sur une connexion pour y accéder.
+A user must have at least one permission on a connection to access it.
 
-1. Depuis la page d'édition de l'utilisateur, ouvrez l'onglet **Permissions**.
-2. Dans **Connexions**, cochez les connexions auxquelles l'utilisateur doit accéder.
-3. Assurez-vous que l'autorisation **Lecture** est cochée.
-4. Cliquez sur **Enregistrer**.
+1. From the user's edit page, open the **Permissions** tab.
+2. Under **Connections**, check the connections the user should access.
+3. Ensure the **Read** permission is checked.
+4. Click **Save**.
 
 ![profile1](images/profile1.png)
 
 ![profile2](images/profile2.png)
 
+![user-list](images/liste-user.png)
 
-![liste-user](images/liste-user.png)
+## 4. Manage user groups
 
+Groups allow assigning permissions to multiple users at once.
 
-## 4. Gérer les groupes d'utilisateurs
+### 4.1 Create a new group
 
-Les groupes permettent d'attribuer des permissions à plusieurs utilisateurs en une seule opération.
+1. In **Settings** → **Groups**, click **New Group**.
+2. In **Properties**, enter a clear name (e.g. `Network-Admins`).
+3. Click **Save**.
 
-### 4.1 Créer un nouveau groupe
+### 4.2 Assign permissions to a group
 
-1. Dans **Paramètres** → **Groupes**, cliquez sur **Nouveau groupe**.
-2. Dans **Propriétés**, définissez un nom clair (ex. `Administrateurs-Réseau`).
-3. Cliquez sur **Enregistrer**.
+1. From the group's edit page, open the **Permissions** tab.
+2. Under **Connections**, check the desired connections or connection groups.
+3. Click **Save**.
 
-### 4.2 Attribuer des permissions au groupe
+### 4.3 Add users to a group
 
-1. Depuis la page d'édition du groupe, ouvrez l'onglet **Permissions**.
-2. Dans **Connexions**, cochez les connexions ou groupes de connexions souhaités.
-3. Cliquez sur **Enregistrer**.
+1. In **Settings** → **Users**, open the user you want to add.
+2. Open the **Groups** tab and check the appropriate group.
+3. Click **Save**. The user will inherit the group's permissions.
 
-### 4.3 Ajouter des utilisateurs au groupe
+![group-admin](images/groupe-admin.png)
 
-1. Dans **Paramètres** → **Utilisateurs**, ouvrez l'utilisateur à ajouter.
-2. Ouvrez l'onglet **Groupes** et cochez le groupe approprié.
-3. Cliquez sur **Enregistrer**. L'utilisateur hérite alors des permissions du groupe.
+![group-user](images/groupe-user.png)
 
-![groupe-admin](images/groupe-admin.png)
+![group-management](images/gestion-des-groupes.png)
 
-![groupe-user](images/groupe-user.png)
-
-![gestion-des-groupes](images/gestion-des-groupes.png)
+````

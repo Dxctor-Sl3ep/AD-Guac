@@ -1,49 +1,51 @@
-🚀 Apache Guacamole sur Docker : Pourquoi ce Projet ?
+🚀 Apache Guacamole on Docker: Why this Project?
 
-Ce projet déploie Apache Guacamole, un client de passerelle de bureau à distance sans client (clientless remote desktop gateway), en utilisant Docker Compose.
+This project deploys Apache Guacamole — a clientless remote desktop gateway — using Docker Compose.
 
-L'objectif principal est de fournir une solution d'accès distant sécurisée et facile à gérer, tout en tirant parti des avantages de la conteneurisation.
+The main goal is to provide a secure, easy-to-manage remote access solution while leveraging the benefits of containerization.
 
-🥑 1. Intérêt d'Apache Guacamole
+🥑 1. Why Apache Guacamole
 
-Guacamole est souvent appelé un "VPN pour l'accès distant" car il centralise toutes vos connexions (RDP, VNC, SSH) et les rend accessibles via un simple navigateur web, sans nécessiter l'installation de logiciel client spécifique.
-Caractéristique	Bénéfice Principal
-Accès Web (Clientless)	Accédez à n'importe quel serveur (Windows, Linux, etc.) depuis n'importe quel appareil (PC, tablette) avec seulement un navigateur web. Aucun logiciel tiers n'est requis.
-Centralisation	Tous les protocoles (RDP, VNC, SSH) sont gérés par Guacamole. Un seul port à ouvrir sur le pare-feu externe (souvent 80 ou 443) au lieu d'ouvrir les ports pour chaque service distant (3389, 22, 5900).
-Sécurité Accrue	L'authentification passe par Guacamole, agissant comme un point de contrôle unique et sécurisé.
-Journalisation/Audit	Guacamole enregistre les sessions (vidéo) et les événements, offrant une traçabilité complète de qui a accédé à quoi et quand.
+Guacamole is like a VPN for remote server access. It centralizes your connections (RDP, SSH, VNC) and lets you access them from a web browser without installing special client software.
 
-🐳 2. Intérêt de la Conteneurisation (Docker Compose)
+    Web access: connect to your servers from any device (PC, tablet, phone) through a browser.
 
-Déployer Guacamole via Docker Compose résout les problèmes de dépendances, d'environnement et de gestion des services complexes.
+    Centralization: a single access point and a single open port (80 or 443) can serve all protocols.
 
-2.1. Isolation et Environnement
+    Security: Guacamole handles authentication, strengthening access protection.
 
-    Zéro conflit de dépendances : Guacamole nécessite Java et divers outils de compilation (guacd). Docker inclut toutes ces dépendances dans les conteneurs.
+    Auditing: it logs connections and can record sessions for full traceability.
 
-    Environnement garanti : Le service fonctionnera de manière identique, que vous le lanciez sur Windows, macOS ou Linux.
 
-2.2. Facilité de Déploiement et d'Évolutivité
+🐳 2. Why Containerization (Docker Compose)
 
-    Déploiement en une seule commande : Le fichier docker-compose.yml définit l'ensemble de l'architecture (guacamole, guacd, et mariadb). Le lancement se fait via un simple docker compose up -d.
+Deploying Guacamole with Docker Compose solves dependency, environment, and complex service management issues.
 
-    Architecture modulaire : Chaque service est isolé dans son propre conteneur :
+2.1 Isolation and Environment
 
-        guacamole_db : Stocke les utilisateurs et les connexions.
+    Zero dependency conflicts: Guacamole requires Java and various build tools (guacd). Docker packages all required dependencies inside containers.
 
-        guacd : Le démon qui gère les protocoles (RDP/VNC/SSH).
+    Consistent environment: the service will behave the same whether you run it on Windows, macOS, or Linux.
 
-        guacamole : Le frontend web.
+2.2 Ease of Deployment and Scalability
 
-    Persistance des données : Les volumes Docker sont utilisés pour garantir que les données de la base de données et les enregistrements de sessions persistent même si les conteneurs sont supprimés ou mis à jour.
+    One-command deployment: the `docker-compose.yml` defines the whole architecture (guacamole, guacd, and mariadb). Start with `docker compose up -d`.
 
-2.3. Gestion et Maintenance
+    Modular architecture: each service runs in its own container:
 
-    Configuration centralisée : Toutes les variables critiques (mots de passe, noms de bases de données) sont gérées via le fichier .env.
+        - `guacamole_db`: stores users and connections.
+        - `guacd`: the daemon that handles protocols (RDP/VNC/SSH).
+        - `guacamole`: the web frontend.
 
-    Mise à jour simplifiée : Pour mettre à jour Guacamole vers la dernière version, il suffit de modifier l'image dans le docker-compose.yml et de relancer la stack (docker compose pull puis docker compose up -d).
+    Data persistence: Docker volumes ensure database data and session recordings persist even if containers are recreated or updated.
 
-📖 3. Démarrage du Projet
+2.3 Management and Maintenance
 
-Toutes les étapes pour lancer cette stack sont détaillées dans le fichier install.md.
-[lien vers l'installation](./install.md)
+    Centralized configuration: critical variables (passwords, database names) are managed via a `.env` file.
+
+    Simplified upgrades: to update Guacamole, change the image tag in `docker-compose.yml` and restart the stack (`docker compose pull` then `docker compose up -d`).
+
+
+📖 3. Getting Started
+
+All steps to run this stack are detailed in the installation guide: [installation](./install.md)
